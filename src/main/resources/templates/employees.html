@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<h1>Employees</h1>
+
+<p th:text="${employees}"></p>
+
+<table>
+  <tr th:each="employee : ${employees}">
+    <td th:text="${employee.id}"></td>
+    <td th:text="${employee.name}"></td>
+  </tr>
+</table>
+
+<form th:object="${createEmployeeCommand}" method="post">
+    <input name="name" th:field="*{name}"/>
+    <input type="submit" value="Create" />
+</form>
+
+</body>
+</html>
